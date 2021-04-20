@@ -1,0 +1,235 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/vuesax@4.0.1-alpha.16/dist/vuesax.min.css" rel="stylesheet">
+  <link rel="icon" href="assets/img/devotionpng.png" type="image/x-icon" />
+  <link rel="stylesheet" href="assets/css/Loader.css">
+  <link rel="stylesheet" href="assets/css/Style.css">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script language="javascript" src="http://in.sitekodlari.com/yazisecmeengeli.js"></script>
+  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+  <script language="javascript" src="http://ir.sitekodlari.com/sagtusengelleme1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+</head>
+
+<body>
+  <div id='preloader'>
+    <svg class='spinner' height='50px' viewBox='0 0 66 66' width='50px' xmlns='http://www.w3.org/2000/svg'>
+      <circle class='path' cx='33' cy='33' fill='none' r='30' stroke-linecap='round' stroke-width='4' />
+    </svg>
+  </div>
+  <v-app id='shop'>
+    <div v-for='page in pageOptions'>
+      <title>{{ page.Title }}</title>
+      <v-alert dismissible color="dark purple" type="info">{{ page.alertMessage }}</v-alert>
+    </div>
+    <v-main>
+      <div id="sidelogo" style="position: absolute; margin-top: 2%; margin-left: 3%; font-family: 'Discord' !important;"
+        v-for="home in homeOptions">
+        <h1>{{ home.Header }}</h1>
+      </div>
+      <v-btn href="https://github.com/DevotionDiscord" style="position: absolute; margin-left: 85%; margin-top: 2.4%;"
+        icon>
+        <ion-icon style="width: 30px; height: 30px;" name="logo-github"></ion-icon>
+      </v-btn>
+      <v-btn href="https://discord.gg/devotion" style="position: absolute; margin-left: 88%; margin-top: 2.5%;" icon>
+        <ion-icon style="width: 30px; height: 30px;" name="logo-discord"></ion-icon>
+      </v-btn>
+      <v-btn href="https://www.instagram.com/devotion.inc/"
+        style="position: absolute; margin-left: 91%; margin-top: 2.4%;" icon>
+        <ion-icon style="width: 30px; height: 30px;" name="logo-instagram"></ion-icon>
+      </v-btn>
+      <div v-for='content in shopPageContent' class='container fill-height'>
+        <div class="row text-center align-center justify-center">
+          <div style="position: absolute; margin-bottom: 8%; height: 20%;" class="col col-12">
+            <h1>{{ content.Header }}</h1>
+            <p>{{ content.Author }}</p>
+          </div>
+          <div style="position: relative; margin-top: 12%;" id="packageCards">
+            <v-row no-gutters>
+              <div v-for="package in packageOne">
+                <v-col style="position: relative; margin-left: 2%;" order="12">
+                  <v-hover v-slot="{ hover }" open-delay="20">
+                    <v-card :elevation="hover ? 16 : 2" class="mx-auto" max-width="340" style="height: 194px;">
+                      <v-list-item three-line>
+                        <v-list-item-content>
+                          <v-list-item-title class="headline mb-1">{{ package.Title }} - {{ package.Tauth }}</v-list-item-title>
+                          <v-list-item-subtitle style="margin-top: 8%;">{{ package.Author }}</v-list-item-subtitle>
+                          <v-list-item-subtitle style="margin-top: 4%;">{{ package.Author2 }}</v-list-item-subtitle>
+                          <v-list-item-subtitle style="margin-top: 4%;">{{ package.Author3 }}</v-list-item-subtitle>
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-row justify="center">
+                        <v-btn style="margin-top: 3%;" text @click.stop="dialogOne = true">{{ package.buttonText }}
+                        </v-btn>
+                        <v-dialog v-model="dialogOne" max-width="290">
+                          <div v-for="author in authorCardOne">
+                            <v-card>
+                              <v-card-title class="headline">{{ author.Title }}</v-card-title>
+                              <v-card-text>{{ author.longAuth }}</v-card-text>
+                              <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn color="purple" text @click="dialogOne = false">{{ author.buttonText }}</v-btn>
+                              </v-card-actions>
+                            </v-card>
+                        </v-dialog>
+                      </v-row>
+                    </v-card>
+              </div>
+              </v-hover>
+              </v-col>
+          </div>
+          <div v-for="package in packageTwo">
+            <v-col style="position: relative; margin-left: 2%;" order="12">
+              <v-hover v-slot="{ hover }" open-delay="20">
+                <v-card :elevation="hover ? 16 : 2" class="mx-auto" max-width="340" style="height: 194px;">
+                  <v-list-item three-line>
+                    <v-list-item-content>
+                      <v-list-item-title class="headline mb-1">{{ package.Title }} - {{ package.Tauth }}</v-list-item-title>
+                      <v-list-item-subtitle style="margin-top: 8%;">{{ package.Author }}</v-list-item-subtitle>
+                      <v-list-item-subtitle style="margin-top: 4%;">{{ package.Author2 }}</v-list-item-subtitle>
+                      <v-list-item-subtitle style="margin-top: 4%;">{{ package.Author3 }}</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-row justify="center">
+                    <v-btn style="margin-top: 3%;" text @click.stop="dialogTwo = true">{{ package.buttonText }}</v-btn>
+                    <v-dialog v-model="dialogTwo" max-width="290">
+                      <div v-for="author in authorCardTwo">
+                        <v-card>
+                          <v-card-title class="headline">{{ author.Title }}</v-card-title>
+                          <v-card-text>{{ author.longAuth }}</v-card-text>
+                          <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn color="purple" text @click="dialogTwo = false">{{ author.buttonText }}</v-btn>
+                          </v-card-actions>
+                        </v-card>
+                    </v-dialog>
+                  </v-row>
+                </v-card>
+          </div>
+          </v-hover>
+          </v-col>
+        </div>
+        <div v-for="package in packageThree">
+          <v-col style="position: relative; margin-left: 2%;" order="12">
+            <v-hover v-slot="{ hover }" open-delay="20">
+              <v-card :elevation="hover ? 16 : 2" class="mx-auto" max-width="340" style="height: 194px;">
+                <v-list-item three-line>
+                  <v-list-item-content>
+                    <v-list-item-title class="headline mb-1">{{ package.Title }} - {{ package.Tauth }}</v-list-item-title>
+                    <v-list-item-subtitle style="margin-top: 8%;">{{ package.Author }}</v-list-item-subtitle>
+                    <v-list-item-subtitle style="margin-top: 4%;">{{ package.Author2 }}</v-list-item-subtitle>
+                    <v-list-item-subtitle style="margin-top: 4%;">{{ package.Author3 }}</v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+                <v-row justify="center">
+                  <v-btn style="margin-top: 3%;" text @click.stop="dialogThree = true">{{ package.buttonText }}</v-btn>
+                  <v-dialog v-model="dialogThree" max-width="290">
+                    <div v-for="author in authorCardThree">
+                      <v-card>
+                        <v-card-title class="headline">{{ author.Title }}</v-card-title>
+                        <v-card-text>{{ author.longAuth }}</v-card-text>
+                        <v-card-actions>
+                          <v-spacer></v-spacer>
+                          <v-btn color="purple" text @click="dialogThree = false">{{ author.buttonText }}</v-btn>
+                        </v-card-actions>
+                      </v-card>
+                  </v-dialog>
+                </v-row>
+              </v-card>
+        </div>
+        </v-hover>
+        </v-col>
+      </div>
+      <div v-for="package in packageFour">
+        <v-col style="position: relative; margin-left: 2%;" order="12">
+          <v-hover v-slot="{ hover }" open-delay="20">
+            <v-card :elevation="hover ? 16 : 2" class="mx-auto" max-width="340" style="height: 194px;">
+              <v-list-item three-line>
+                <v-list-item-content>
+                  <v-list-item-title class="headline mb-1">{{ package.Title }} - {{ package.Tauth }}</v-list-item-title>
+                  <v-list-item-subtitle style="margin-top: 8%;">{{ package.Author }}</v-list-item-subtitle>
+                  <v-list-item-subtitle style="margin-top: 4%;">{{ package.Author2 }}</v-list-item-subtitle>
+                  <v-list-item-subtitle style="margin-top: 4%;">{{ package.Author3 }}</v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+              <v-row justify="center">
+                <v-btn style="margin-top: 3%;" text @click.stop="dialogFour = true">{{ package.buttonText }}</v-btn>
+                <v-dialog v-model="dialogFour" max-width="290">
+                  <div v-for="author in authorCardFour">
+                    <v-card>
+                      <v-card-title class="headline">{{ author.Title }}</v-card-title>
+                      <v-card-text>{{ author.longAuth }}</v-card-text>
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn color="purple" text @click="dialogFour = false">{{ author.buttonText }}</v-btn>
+                      </v-card-actions>
+                    </v-card>
+                </v-dialog>
+              </v-row>
+            </v-card>
+      </div>
+      </v-hover>
+      </v-col>
+      </div>
+      </v-row>
+      </div>
+      </div>
+      <v-text-field style="max-width: 50%; margin-left: 20%;" color="purple" filled
+        label="Discord hesabınız, ürün kodu.." clearable></v-text-field>
+      <v-btn v-on:click="aksiyon" style="position: relative; height: 6.5%; margin-bottom: 1.6%; margin-left: 2%;">Sipariş Ver
+      </v-btn>
+      <div v-for='bottom in bottomNavOptions'>
+        <v-bottom-navigation color="purple" absolute :value="value" grow>
+        <v-btn href='Shop.html'>
+          <v-icon>{{ bottom.shopIcon }}</v-icon>
+        </v-btn>
+        <v-btn href='Main.html'>
+          <v-icon>{{bottom.homePageIcon }}</v-icon>
+        </v-btn>
+        <v-menu color="purple" bottom origin="center center" transition="slide-y-transition">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn icon v-bind="attrs" v-on="on">
+             <v-icon>{{ bottom.optionsIcon }}<icon>
+           </v-btn>
+         </template>
+         <div v-for='options in optionsCard'>
+           <v-card>
+      <v-list>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>{{ options.cardHeader }}</v-list-item-title>
+          </v-list-item-content>
+          <v-list-item-action> 
+              <v-icon>{{ options.cardHeaderIcon }}</v-icon>
+          </v-list-item-action>
+        </v-list-item>
+      </v-list>
+      <v-list>
+        <v-list-item>
+          <v-list-item-action>
+            <v-switch color='purple' v-model="$vuetify.theme.dark"></v-switch>
+          </v-list-item-action>
+          <v-list-item-title>{{ options.oneSwitchAuthor }}</v-list-item-title>         
+        </v-list-item>
+      </v-list>
+    </v-card>
+         </div>
+      </v-bottom-navigation>
+    </div>
+    </v-main>
+  </v-app>
+
+  <script src="assets/js/Scripts.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src='assets/js/Shop.js'></script>
+  <script src="assets/js/dbConnect.js"></script>
+  <script src='assets/js/Plugins.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/css/Loader.css">
+    </head>
+
+    
+    <body>
+
+        <script type='text/javascript'>
+            $(window).load(function(){$(".spinner").fadeOut(),$("#preloader").delay(350).fadeOut("slow"),$("body").delay(350).css({overflow:"visible"})});
+            </script>
+
+    </body>
+
+    <div id='preloader'>
+        <svg class='spinner' height='50px' viewBox='0 0 66 66' width='50px' xmlns='http://www.w3.org/2000/svg'>
+           <circle class='path' cx='33' cy='33' fill='none' r='30' stroke-linecap='round' stroke-width='4'/>
+        </svg>
+        </div>
+
+</html>
+
+<div v-for='cards in contentCards'>
+    <v-row :align="align"style="height: 150px;">
+    <v-col v-for="shely in 3" :key="shely">
+<v-card class="mx-auto" max-width="500">
+<v-list-item three-line>
+<v-list-item-content>
+  <v-list-item-title class="headline mb-1"><v-icon style="position: relative; margin: 6%; max-width: 10%;">{{ cards.ordersIcon }}</v-icon>{{ cards.ordersTitle }} {{ cards.ordersNumber }}</v-list-item-title>
+  <v-list-item-subtitle>{{ cards.ordersAuthor }}</v-list-item-subtitle>
+</v-list-item-content>
+ </v-list-item>
+</v-card>        
+</v-row>
+</v-col> 
+</div>
+</div>        

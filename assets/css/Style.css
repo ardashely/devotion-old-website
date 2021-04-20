@@ -1,0 +1,32 @@
+body {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'Discord';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Discord'), url('https://devcells.party/assets/fonts/Discord.woff2') format('woff2');
+}
+
+#sidelogo h1:hover {
+  color: #9C27B0;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  cursor: pointer;
+}
+
+#socailIcons a:hover {
+  color: #9C27B0;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  cursor: pointer;
+}
